@@ -14,10 +14,13 @@ exports.up = function () {
     })
     .createTable("employee", function (table) {
       table.uuid("id").primary();
+      table.integer("group_type").notNullable();
       table.string("name", 255).notNullable();
       table.string("surname", 255).notNullable();
       table.string("email", 255).notNullable();
       table.string("image", 500).notNullable();
+      table.timestamp("created_at").defaultTo(knex.fn.now());
+      table.integer("isdeleted").defaultTo(1);
     });
 };
 

@@ -63,6 +63,7 @@ exports.seed = async function () {
   rows = [
     {
       id: crypto.randomUUID(),
+      group_type: 1,
       name: "Vasanth",
       surname: "M",
       email: "vasanth@gmail.com",
@@ -73,6 +74,7 @@ exports.seed = async function () {
   for (index = 0; index < rows.length; index++) {
     let query = knex(tableName)
       .where("id", rows[index].id)
+      .andWhere("group_type", rows[index].group_type)
       .andWhere("name", rows[index].name.trim())
       .andWhere("surname", rows[index].surname.trim())
       .andWhere("email", rows[index].email.trim());

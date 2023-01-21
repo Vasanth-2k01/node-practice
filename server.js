@@ -17,7 +17,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static("uploads"));
 const upload = require("./uploadMiddleware");
-const { encode } = require("querystring");
 app.use(upload);
 
 // const upload = multer().none();

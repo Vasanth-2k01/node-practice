@@ -5,6 +5,10 @@ module.exports = () => {
 
   employeeroutes.route("/getEmployeeList").get(employeeController.EmployeeList);
 
+  employeeroutes
+    .route("/getEmployeeListByType")
+    .get(employeeController.EmployeeListByType);
+
   employeeroutes.route("/addEmployee").post(employeeController.AddEmployee);
 
   employeeroutes
@@ -12,7 +16,16 @@ module.exports = () => {
     .get(employeeController.EmployeeListById);
 
   employeeroutes
+    .route("/editEmployee/:id")
+    .put(employeeController.EditEmployee);
+
+  employeeroutes
     .route("/deleteEmployee/:id")
     .delete(employeeController.DeleteEmployee);
+
+  employeeroutes
+    .route("/getEmployeeListWithGroup")
+    .get(employeeController.getEmployeeListWithGroup);
+
   return employeeroutes;
 };
